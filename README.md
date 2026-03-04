@@ -3,7 +3,7 @@
 A production-grade system for analyzing legal contracts for risk clauses using Legal BERT.
 
 ## Features
-- **Contract Upload**: Drag & Drop PDF, DOCX, and TXT files.
+- **Contract Upload**: Drag & Drop PDF and DOCX files.
 - **Clause Extraction**: Automatic segmentation of contracts into logical clauses.
 - **Risk Analysis**: Powered by HuggingFace Transformers and `nlpaueb/legal-bert-base-uncased`.
 - **Dashboard**: Beautiful Glassmorphism UI with real-time analytics.
@@ -64,3 +64,4 @@ Then navigate to `http://localhost:8000` in your browser.
 - **Singleton Model Loading**: The `RiskAnalyzer` preloads the BERT model at startup to avoid reloading it on every request, which is crucial for reasonable API latency.
 - **Clean Architecture**: Services (`clause_extractor.py`, `risk_analyzer.py`), utilities (`file_parser.py`), and routing (`contract_routes.py`) are strictly separated.
 - **Vanilla JS**: The frontend avoids heavy frameworks (React/Vue) to meet the requirement strictly relying on ES6 modularity and lightweight dom updates, while delivering a highly polished aesthetic.
+
