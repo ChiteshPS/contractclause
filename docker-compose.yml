@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: contract-backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend/instance:/app/instance
+      - ./backend/uploads:/app/uploads
+      - hf_cache:/root/.cache/huggingface
+    environment:
+      - DATABASE_URL=sqlite:///instance/contract_analyzer.db
+      - SECRET_KEY=your-secret-key-here
+    restart: always
+
+  frontend:
+    build: ./frontend
+    container_name: contract-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always
+
+volumes:
+  hf_cache:
